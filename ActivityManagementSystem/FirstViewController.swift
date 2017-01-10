@@ -22,7 +22,6 @@ class FirstViewController: UITableViewController {
         //self.tableView.tableHeaderView = self.scrollView
         self.tableView.showsVerticalScrollIndicator = false;
         loadData()
-        print(self.activities.count)
     }
     
     func loadData(){
@@ -35,6 +34,7 @@ class FirstViewController: UITableViewController {
                 self.activities = response.result.value as! [NSDictionary]
                 
                 print(self.activities.count)
+                self.tableView.reloadData()
         }
         
     }
@@ -50,28 +50,22 @@ class FirstViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return self.activities.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         let row = indexPath.row
-        switch (row) {
-        case 0:
-            cell.textLabel!.text = "活动1"
-            break;
-        case 1:
-            cell.textLabel!.text = "投票1"
-            break;
-        case 2:
-            cell.textLabel!.text = "投票2"
-            break;
-        case 3:
-            cell.textLabel!.text = "活动2"
-            break;
-        default:
-            break;
+        let item = self.activities[row]
+        let votings = item["votings"] as? [NSDictionary]
+        if (votings?.count == 0) {
+            let image = UIImage(named:"1.png")
+            cell.imageView?.image = image
+        } else {
+            let image = UIImage(named:"2.png")
+            cell.imageView?.image = image
         }
+        cell.textLabel!.text = item["title"] as? String
         return cell
     }
     
@@ -98,13 +92,15 @@ class FirstViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         print("You deselected cell #\(indexPath.row)!")
-        //        let type = items.objectAtIndex(indexPath.row) as String
-        let type = "activity"
-        if (type == "activity") {
+        let item = self.activities[indexPath.row]
+        let votings = item["votings"] as? [NSDictionary]
+        if (votings?.count != 0) {
             let sb = UIStoryboard(name: "Main", bundle:nil)
             let vc = sb.instantiateViewControllerWithIdentifier("activityViewController") as! ActivityViewController
+            vc.htmlContent = (item["htmlContent"] as! String)
+            vc.comments = (item["comments"] as! [NSDictionary])
             self.navigationController!.pushViewController(vc, animated: true)
-        } else if (type == "vote"){
+        } else {
             let sb = UIStoryboard(name: "Main", bundle:nil)
             let vc = sb.instantiateViewControllerWithIdentifier("voteViewController") as! VoteViewController
             self.navigationController!.pushViewController(vc, animated: true)

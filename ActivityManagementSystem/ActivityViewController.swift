@@ -12,6 +12,9 @@ class ActivityViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var tableView: UITableView!
     
+    var htmlContent = String()
+    var comments = [NSDictionary]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,6 +23,9 @@ class ActivityViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.delegate = self
         tableView.dataSource = self
         tableView.registerClass(UITableViewCell.self,forCellReuseIdentifier: "cell")
+        tableView.estimatedRowHeight = 44.0
+        tableView.rowHeight = UITableViewAutomaticDimension
+        webView.loadHTMLString(htmlContent,baseURL:nil)
 
     }
     
@@ -28,28 +34,14 @@ class ActivityViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return comments.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
-        let row = indexPath.row
-        switch (row) {
-        case 0:
-            cell.textLabel!.text = "1"
-            break;
-        case 1:
-            cell.textLabel!.text = "2"
-            break;
-        case 2:
-            cell.textLabel!.text = "3"
-            break;
-        case 3:
-            cell.textLabel!.text = "4"
-            break;
-        default:
-            break;
-        }
+        let comment = self.comments[indexPath.row]
+        cell.textLabel!.text = (comment["createdBy"] as? String)! + ": " + (comment["content"] as? String)!
+        cell.textLabel?.numberOfLines = 0
         return cell
     }
     
@@ -61,4 +53,11 @@ class ActivityViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewWillAppear(animated: Bool) {
         self.hidesBottomBarWhenPushed = true
     }
+    
+    @IBAction func like(sender: AnyObject) {
+    }
+    
+    @IBAction func collect(sender: AnyObject) {
+    }
+    
 }
