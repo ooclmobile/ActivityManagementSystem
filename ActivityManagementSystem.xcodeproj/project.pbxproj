@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040210991E24DE65001A6C83 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 040210941E24DE65001A6C83 /* 2.png */; };
+		0402109A1E24DE65001A6C83 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 040210951E24DE65001A6C83 /* 3.png */; };
+		0402109B1E24DE65001A6C83 /* iconfont-select.png in Resources */ = {isa = PBXBuildFile; fileRef = 040210961E24DE65001A6C83 /* iconfont-select.png */; };
+		0402109C1E24DE65001A6C83 /* iconfont-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 040210971E24DE65001A6C83 /* iconfont-selected.png */; };
+		0402109E1E24DE78001A6C83 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0402109D1E24DE78001A6C83 /* 1.png */; };
 		0456217D1E1E0DC700A26C73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0456217C1E1E0DC700A26C73 /* AppDelegate.swift */; };
 		0456217F1E1E0DC700A26C73 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0456217E1E1E0DC700A26C73 /* FirstViewController.swift */; };
 		045621811E1E0DC700A26C73 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045621801E1E0DC700A26C73 /* SecondViewController.swift */; };
@@ -15,17 +20,12 @@
 		045621891E1E0DC700A26C73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 045621871E1E0DC700A26C73 /* LaunchScreen.storyboard */; };
 		045621941E1E0DC800A26C73 /* ActivityManagementSystemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045621931E1E0DC800A26C73 /* ActivityManagementSystemTests.swift */; };
 		0456219F1E1E0DC800A26C73 /* ActivityManagementSystemUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0456219E1E1E0DC800A26C73 /* ActivityManagementSystemUITests.swift */; };
-		045621B01E1E173200A26C73 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 045621AD1E1E173200A26C73 /* 1.png */; };
-		045621B11E1E173200A26C73 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 045621AE1E1E173200A26C73 /* 2.png */; };
-		045621B21E1E173200A26C73 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 045621AF1E1E173200A26C73 /* 3.png */; };
 		045621B41E1F7B6500A26C73 /* CreateVoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045621B31E1F7B6500A26C73 /* CreateVoteViewController.swift */; };
 		045621B61E2091BD00A26C73 /* XHAdLoopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045621B51E2091BD00A26C73 /* XHAdLoopView.swift */; };
 		045621B81E20FE3D00A26C73 /* VoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045621B71E20FE3D00A26C73 /* VoteViewController.swift */; };
 		045621BA1E20FEAE00A26C73 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045621B91E20FEAE00A26C73 /* ActivityViewController.swift */; };
 		045621BC1E20FF2200A26C73 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045621BB1E20FF2200A26C73 /* CommentViewController.swift */; };
 		045621BE1E210BAD00A26C73 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045621BD1E210BAD00A26C73 /* CustomTableViewCell.swift */; };
-		045621C01E21134600A26C73 /* iconfont-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 045621BF1E21134600A26C73 /* iconfont-selected.png */; };
-		045621C21E21138400A26C73 /* iconfont-select.png in Resources */ = {isa = PBXBuildFile; fileRef = 045621C11E21138400A26C73 /* iconfont-select.png */; };
 		045621C61E234CB400A26C73 /* InputTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045621C51E234CB400A26C73 /* InputTableViewCell.swift */; };
 		045621C81E2474A500A26C73 /* MyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045621C71E2474A500A26C73 /* MyListViewController.swift */; };
 		045621CA1E24AF2C00A26C73 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045621C91E24AF2C00A26C73 /* LoginViewController.swift */; };
@@ -50,6 +50,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		040210941E24DE65001A6C83 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 2.png; path = ../../sharing/resource/images/2.png; sourceTree = "<group>"; };
+		040210951E24DE65001A6C83 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 3.png; path = ../../sharing/resource/images/3.png; sourceTree = "<group>"; };
+		040210961E24DE65001A6C83 /* iconfont-select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iconfont-select.png"; path = "../../sharing/resource/images/iconfont-select.png"; sourceTree = "<group>"; };
+		040210971E24DE65001A6C83 /* iconfont-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iconfont-selected.png"; path = "../../sharing/resource/images/iconfont-selected.png"; sourceTree = "<group>"; };
+		0402109D1E24DE78001A6C83 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 1.png; path = ../../sharing/resource/images/1.png; sourceTree = "<group>"; };
 		045621791E1E0DC700A26C73 /* ActivityManagementSystem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ActivityManagementSystem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0456217C1E1E0DC700A26C73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0456217E1E1E0DC700A26C73 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -64,17 +69,12 @@
 		0456219A1E1E0DC800A26C73 /* ActivityManagementSystemUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ActivityManagementSystemUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0456219E1E1E0DC800A26C73 /* ActivityManagementSystemUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityManagementSystemUITests.swift; sourceTree = "<group>"; };
 		045621A01E1E0DC800A26C73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		045621AD1E1E173200A26C73 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
-		045621AE1E1E173200A26C73 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
-		045621AF1E1E173200A26C73 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
 		045621B31E1F7B6500A26C73 /* CreateVoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateVoteViewController.swift; sourceTree = "<group>"; };
 		045621B51E2091BD00A26C73 /* XHAdLoopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XHAdLoopView.swift; sourceTree = "<group>"; };
 		045621B71E20FE3D00A26C73 /* VoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteViewController.swift; sourceTree = "<group>"; };
 		045621B91E20FEAE00A26C73 /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		045621BB1E20FF2200A26C73 /* CommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		045621BD1E210BAD00A26C73 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
-		045621BF1E21134600A26C73 /* iconfont-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-selected.png"; sourceTree = "<group>"; };
-		045621C11E21138400A26C73 /* iconfont-select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-select.png"; sourceTree = "<group>"; };
 		045621C51E234CB400A26C73 /* InputTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputTableViewCell.swift; sourceTree = "<group>"; };
 		045621C71E2474A500A26C73 /* MyListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyListViewController.swift; sourceTree = "<group>"; };
 		045621C91E24AF2C00A26C73 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -176,11 +176,11 @@
 		045621AC1E1E173200A26C73 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				045621C11E21138400A26C73 /* iconfont-select.png */,
-				045621AD1E1E173200A26C73 /* 1.png */,
-				045621AE1E1E173200A26C73 /* 2.png */,
-				045621AF1E1E173200A26C73 /* 3.png */,
-				045621BF1E21134600A26C73 /* iconfont-selected.png */,
+				0402109D1E24DE78001A6C83 /* 1.png */,
+				040210941E24DE65001A6C83 /* 2.png */,
+				040210951E24DE65001A6C83 /* 3.png */,
+				040210961E24DE65001A6C83 /* iconfont-select.png */,
+				040210971E24DE65001A6C83 /* iconfont-selected.png */,
 			);
 			name = images;
 			path = ../../resource/images;
@@ -310,13 +310,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0402109E1E24DE78001A6C83 /* 1.png in Resources */,
 				045621891E1E0DC700A26C73 /* LaunchScreen.storyboard in Resources */,
-				045621B01E1E173200A26C73 /* 1.png in Resources */,
-				045621B11E1E173200A26C73 /* 2.png in Resources */,
-				045621C21E21138400A26C73 /* iconfont-select.png in Resources */,
-				045621B21E1E173200A26C73 /* 3.png in Resources */,
+				040210991E24DE65001A6C83 /* 2.png in Resources */,
+				0402109A1E24DE65001A6C83 /* 3.png in Resources */,
+				0402109B1E24DE65001A6C83 /* iconfont-select.png in Resources */,
 				045621861E1E0DC700A26C73 /* Assets.xcassets in Resources */,
-				045621C01E21134600A26C73 /* iconfont-selected.png in Resources */,
+				0402109C1E24DE65001A6C83 /* iconfont-selected.png in Resources */,
 				045621841E1E0DC700A26C73 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

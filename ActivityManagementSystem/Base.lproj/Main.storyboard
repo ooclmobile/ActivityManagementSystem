@@ -326,7 +326,7 @@
         <!--Login View Controller-->
         <scene sceneID="AoB-d4-nXC">
             <objects>
-                <viewController storyboardIdentifier="loginViewController" id="Oi7-C0-0Hw" customClass="LoginViewController" customModule="ActivityManagementSystem" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginViewController" modalTransitionStyle="flipHorizontal" id="Oi7-C0-0Hw" customClass="LoginViewController" customModule="ActivityManagementSystem" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NPZ-WM-KcC"/>
                         <viewControllerLayoutGuide type="bottom" id="pmC-0r-Avf"/>
@@ -379,7 +379,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController modalTransitionStyle="flipHorizontal" id="49e-Tb-3d3" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="ZlZ-46-f9x"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
