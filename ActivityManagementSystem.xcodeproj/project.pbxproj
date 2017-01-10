@@ -28,6 +28,7 @@
 		045621C21E21138400A26C73 /* iconfont-select.png in Resources */ = {isa = PBXBuildFile; fileRef = 045621C11E21138400A26C73 /* iconfont-select.png */; };
 		045621C61E234CB400A26C73 /* InputTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045621C51E234CB400A26C73 /* InputTableViewCell.swift */; };
 		045621C81E2474A500A26C73 /* MyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045621C71E2474A500A26C73 /* MyListViewController.swift */; };
+		045621CA1E24AF2C00A26C73 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045621C91E24AF2C00A26C73 /* LoginViewController.swift */; };
 		2135BD06B0799A4EE93AAAF6 /* Pods_ActivityManagementSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA9D4ABDCE4C4616C2CC7CFE /* Pods_ActivityManagementSystem.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,7 @@
 		045621C11E21138400A26C73 /* iconfont-select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-select.png"; sourceTree = "<group>"; };
 		045621C51E234CB400A26C73 /* InputTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputTableViewCell.swift; sourceTree = "<group>"; };
 		045621C71E2474A500A26C73 /* MyListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyListViewController.swift; sourceTree = "<group>"; };
+		045621C91E24AF2C00A26C73 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		54225CA2FB03801AFD0184FD /* Pods-ActivityManagementSystem.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActivityManagementSystem.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ActivityManagementSystem/Pods-ActivityManagementSystem.debug.xcconfig"; sourceTree = "<group>"; };
 		97B012D33BC91175B51C4300 /* Pods-ActivityManagementSystem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActivityManagementSystem.release.xcconfig"; path = "Pods/Target Support Files/Pods-ActivityManagementSystem/Pods-ActivityManagementSystem.release.xcconfig"; sourceTree = "<group>"; };
 		CA9D4ABDCE4C4616C2CC7CFE /* Pods_ActivityManagementSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ActivityManagementSystem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +150,7 @@
 				045621BB1E20FF2200A26C73 /* CommentViewController.swift */,
 				045621C51E234CB400A26C73 /* InputTableViewCell.swift */,
 				045621C71E2474A500A26C73 /* MyListViewController.swift */,
+				045621C91E24AF2C00A26C73 /* LoginViewController.swift */,
 			);
 			path = ActivityManagementSystem;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				045621CA1E24AF2C00A26C73 /* LoginViewController.swift in Sources */,
 				045621C61E234CB400A26C73 /* InputTableViewCell.swift in Sources */,
 				045621BE1E210BAD00A26C73 /* CustomTableViewCell.swift in Sources */,
 				045621BC1E20FF2200A26C73 /* CommentViewController.swift in Sources */,

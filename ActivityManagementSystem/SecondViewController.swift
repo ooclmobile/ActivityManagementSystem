@@ -70,6 +70,9 @@ class SecondViewController: UITableViewController {
             self.navigationController!.pushViewController(vc, animated: true)
             break;
         case 2:
+            let sb = UIStoryboard(name: "Main", bundle:nil)
+            let vc = sb.instantiateViewControllerWithIdentifier("loginViewController") as! LoginViewController
+            self.presentViewController(vc, animated: true, completion: nil)
             break;
         default:
             break;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Oi7-C0-0Hw">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -154,7 +154,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oet-rW-Io6">
-                                <rect key="frame" x="20" y="34" width="294" height="134"/>
+                                <rect key="frame" x="17" y="33" width="287" height="134"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -162,10 +162,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Oet-rW-Io6" firstAttribute="top" secondItem="oHc-8d-sW2" secondAttribute="bottom" constant="14" id="5Uf-qw-MDg"/>
-                            <constraint firstItem="gSn-Rn-gav" firstAttribute="top" secondItem="Oet-rW-Io6" secondAttribute="bottom" constant="400" id="MbS-26-zPT"/>
-                            <constraint firstItem="Oet-rW-Io6" firstAttribute="leading" secondItem="tYc-Ud-dpE" secondAttribute="leadingMargin" constant="4" id="X4o-Im-gFt"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Oet-rW-Io6" secondAttribute="trailing" constant="-10" id="bFx-tA-2zu"/>
+                            <constraint firstItem="Oet-rW-Io6" firstAttribute="trailing" secondItem="tYc-Ud-dpE" secondAttribute="trailingMargin" id="3fp-Mn-dep"/>
+                            <constraint firstItem="gSn-Rn-gav" firstAttribute="top" secondItem="Oet-rW-Io6" secondAttribute="bottom" constant="401" id="PMg-pG-Uxm"/>
+                            <constraint firstItem="Oet-rW-Io6" firstAttribute="top" secondItem="oHc-8d-sW2" secondAttribute="bottom" constant="13" id="ZBG-T9-QfZ"/>
+                            <constraint firstItem="Oet-rW-Io6" firstAttribute="centerX" secondItem="tYc-Ud-dpE" secondAttribute="centerX" id="hD0-H1-wxM"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="q6y-vc-E8V"/>
@@ -323,10 +323,64 @@
             </objects>
             <point key="canvasLocation" x="400" y="374"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="AoB-d4-nXC">
+            <objects>
+                <viewController storyboardIdentifier="loginViewController" id="Oi7-C0-0Hw" customClass="LoginViewController" customModule="ActivityManagementSystem" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NPZ-WM-KcC"/>
+                        <viewControllerLayoutGuide type="bottom" id="pmC-0r-Avf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Cj9-qR-9kw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vCG-cC-PS4">
+                                <rect key="frame" x="59" y="95" width="202" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sub-U4-YXa">
+                                <rect key="frame" x="59" y="141" width="202" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N7y-gb-sgp">
+                                <rect key="frame" x="59" y="204" width="202" height="30"/>
+                                <state key="normal" title="登录"/>
+                                <connections>
+                                    <action selector="login:" destination="Oi7-C0-0Hw" eventType="touchUpInside" id="bj3-by-v6z"/>
+                                    <segue destination="49e-Tb-3d3" kind="modal" identifier="login" id="5c6-en-PhL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="N7y-gb-sgp" firstAttribute="top" secondItem="Sub-U4-YXa" secondAttribute="bottom" constant="33" id="QeW-zR-BZa"/>
+                            <constraint firstItem="vCG-cC-PS4" firstAttribute="top" secondItem="NPZ-WM-KcC" secondAttribute="bottom" constant="75" id="RZ3-Re-Gnl"/>
+                            <constraint firstItem="Sub-U4-YXa" firstAttribute="trailing" secondItem="N7y-gb-sgp" secondAttribute="trailing" id="WDU-Ee-5bd"/>
+                            <constraint firstItem="Sub-U4-YXa" firstAttribute="leading" secondItem="N7y-gb-sgp" secondAttribute="leading" id="ZlE-M5-Amh"/>
+                            <constraint firstItem="vCG-cC-PS4" firstAttribute="leading" secondItem="Cj9-qR-9kw" secondAttribute="leadingMargin" constant="43" id="dUC-oE-fWn"/>
+                            <constraint firstItem="Sub-U4-YXa" firstAttribute="top" secondItem="vCG-cC-PS4" secondAttribute="bottom" constant="16" id="gf6-Bf-0Z5"/>
+                            <constraint firstItem="vCG-cC-PS4" firstAttribute="trailing" secondItem="Sub-U4-YXa" secondAttribute="trailing" id="nSB-Q0-P7T"/>
+                            <constraint firstItem="vCG-cC-PS4" firstAttribute="centerX" secondItem="Cj9-qR-9kw" secondAttribute="centerX" id="rot-wx-luM"/>
+                            <constraint firstItem="vCG-cC-PS4" firstAttribute="leading" secondItem="Sub-U4-YXa" secondAttribute="leading" id="wM0-Ar-XSg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="password" destination="Sub-U4-YXa" id="5tb-2K-gcF"/>
+                        <outlet property="user" destination="vCG-cC-PS4" id="UCs-Qr-ZvJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bcz-dP-0Z6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-451" y="0.0"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
                 <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="ZlZ-46-f9x"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
