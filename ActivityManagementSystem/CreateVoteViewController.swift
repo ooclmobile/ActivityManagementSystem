@@ -40,12 +40,12 @@ class CreateVoteViewController: UIViewController,UITableViewDelegate,UITableView
         
         // 注册cell
         tableView.registerClass(UITableViewCell.self,forCellReuseIdentifier: "cell")
-        
+        tableView.editing = true
         
         let longPress = UILongPressGestureRecognizer.init(target: self, action: #selector(longPressAction))
         longPress.delegate = self
         longPress.minimumPressDuration = 1
-        tableView .addGestureRecognizer(longPress)
+//        tableView .addGestureRecognizer(longPress)
     }
     
     func longPressAction(recognizer:UILongPressGestureRecognizer)  {

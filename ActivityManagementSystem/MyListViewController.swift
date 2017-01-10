@@ -53,6 +53,14 @@ class MyListViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("myListCell", forIndexPath: indexPath)
         let row = indexPath.row
         let item = self.activities[row]
+        let votings = item["votings"] as? [NSDictionary]
+        if (votings?.count == 0) {
+            let image = UIImage(named:"1.png")
+            cell.imageView?.image = image
+        } else {
+            let image = UIImage(named:"2.png")
+            cell.imageView?.image = image
+        }
         cell.textLabel!.text = item["title"] as? String
 
         return cell
@@ -60,13 +68,13 @@ class MyListViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         print("You deselected cell #\(indexPath.row)!")
-        //        let type = items.objectAtIndex(indexPath.row) as String
-        let type = "activity"
-        if (type == "activity") {
+        let item = self.activities[indexPath.row]
+        let votings = item["votings"] as? [NSDictionary]
+        if (votings?.count == 0) {
             let sb = UIStoryboard(name: "Main", bundle:nil)
             let vc = sb.instantiateViewControllerWithIdentifier("activityViewController") as! ActivityViewController
             self.navigationController!.pushViewController(vc, animated: true)
-        } else if (type == "vote"){
+        } else {
             let sb = UIStoryboard(name: "Main", bundle:nil)
             let vc = sb.instantiateViewControllerWithIdentifier("voteViewController") as! VoteViewController
             self.navigationController!.pushViewController(vc, animated: true)

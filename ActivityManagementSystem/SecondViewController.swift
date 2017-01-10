@@ -62,6 +62,11 @@ class SecondViewController: UITableViewController {
         case 0,1:
             let sb = UIStoryboard(name: "Main", bundle:nil)
             let vc = sb.instantiateViewControllerWithIdentifier("myListViewController") as! MyListViewController
+            if row == 0 {
+                vc.title = "我的收藏"
+            } else {
+                vc.title = "我的投票"
+            }
             self.navigationController!.pushViewController(vc, animated: true)
             break;
         case 2:
