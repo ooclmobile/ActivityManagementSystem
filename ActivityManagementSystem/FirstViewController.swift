@@ -19,7 +19,6 @@ class FirstViewController: UITableViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         self.title = "主页"
-        //self.tableView.tableHeaderView = self.scrollView
         self.tableView.showsVerticalScrollIndicator = false;
         loadData()
     }
@@ -97,12 +96,14 @@ class FirstViewController: UITableViewController {
         if (votings?.count != 0) {
             let sb = UIStoryboard(name: "Main", bundle:nil)
             let vc = sb.instantiateViewControllerWithIdentifier("activityViewController") as! ActivityViewController
-            vc.htmlContent = (item["htmlContent"] as! String)
-            vc.comments = (item["comments"] as! [NSDictionary])
+            vc.activityId = (item["_id"] as! String)
+            //vc.htmlContent = (item["htmlContent"] as! String)
+            //vc.comments = (item["comments"] as! [NSDictionary])
             self.navigationController!.pushViewController(vc, animated: true)
         } else {
             let sb = UIStoryboard(name: "Main", bundle:nil)
             let vc = sb.instantiateViewControllerWithIdentifier("voteViewController") as! VoteViewController
+            vc.activityId = (item["_id"] as! String)
             self.navigationController!.pushViewController(vc, animated: true)
         }
         

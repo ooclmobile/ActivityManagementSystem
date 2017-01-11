@@ -8,11 +8,12 @@
 
 
 import UIKit
-class CreateVoteViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIGestureRecognizerDelegate {
+class CreateVoteViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextViewDelegate {
     
     var tableView:UITableView!
-    var allNames:Dictionary<Int, [String]>!
     var addHeaders:[String]!
+    var voteDetail = ""
+    var voteOptions = [String](["",""])
     
     
     override func viewDidLoad() {
@@ -21,14 +22,6 @@ class CreateVoteViewController: UIViewController,UITableViewDelegate,UITableView
         
         self.title = "投票"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "发布", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(CreateVoteViewController.commit(_:)))
-        
-        allNames =
-            [
-                0:[String](["投票内容..."]),
-                1:[String](["选项", "T选项", "U选项", "I选项"])
-        ]
-        
-        print(allNames)
         
         addHeaders = ["投票内容","选项"]
         // 创建表格
@@ -42,50 +35,23 @@ class CreateVoteViewController: UIViewController,UITableViewDelegate,UITableView
         tableView.registerClass(UITableViewCell.self,forCellReuseIdentifier: "cell")
         tableView.editing = true
         
-        let longPress = UILongPressGestureRecognizer.init(target: self, action: #selector(longPressAction))
-        longPress.delegate = self
-        longPress.minimumPressDuration = 1
-//        tableView .addGestureRecognizer(longPress)
-    }
-    
-    func longPressAction(recognizer:UILongPressGestureRecognizer)  {
-        
-        if recognizer.state == UIGestureRecognizerState.Began {
-            print("UIGestureRecognizerStateBegan");
-        }
-        if recognizer.state == UIGestureRecognizerState.Changed {
-            print("UIGestureRecognizerStateChanged");
-        }
-        if recognizer.state == UIGestureRecognizerState.Ended {
-            print("UIGestureRecognizerStateEnded");
-            
-            if tableView.editing == true {
-                tableView.editing = false
-            }
-            else
-            {
-                tableView.editing = true
-            }
-            
-            tableView.reloadData()
-        }
     }
     
     // 创建分区
     func numberOfSections(in tableView: UITableView) -> Int {
-        return allNames.count
+        return 2
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return allNames.count
+        return 2
     }
     
     // 每个分区的行数
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        var count =  allNames[section]!.count
+        var count =  1
         if section == 1 && tableView.editing {
-            count += 1
+            count = voteOptions.count + 1
         }
         
         return count
@@ -102,29 +68,37 @@ class CreateVoteViewController: UIViewController,UITableViewDelegate,UITableView
         let identify = "cell"
         
         let secno = indexPath.section
-        let data = allNames[secno]
+        let data = voteOptions
         
         var cell = UITableViewCell()
         
         if secno == 0 {
-            cell = InputTableViewCell()
+            //cell = InputTableViewCell()
+            cell = UITableViewCell.init(style: UITableViewCellStyle.Subtitle, reuseIdentifier: identify)
+            let textView = UITextView(frame:CGRectMake(10.0, 20.0, 390.0, 80.0))
+            textView.layer.borderWidth = 1
+            textView.layer.cornerRadius = 6
+            textView.delegate = self
+            textView.text = voteDetail
+            cell.contentView.addSubview(textView)
         }
         else if secno == 1
         {
             cell = UITableViewCell.init(style: UITableViewCellStyle.Subtitle, reuseIdentifier: identify)
             
             
-            if tableView.editing && indexPath.row == data?.count {
+            if tableView.editing && indexPath.row == voteOptions.count {
                 cell.textLabel?.text = "添加选项..."
-                let button:UIButton = UIButton(type:UIButtonType.System) as UIButton;
-                button.frame=CGRectMake(10, 150, 100, 30);
-                button.setTitle("按钮", forState:UIControlState.Normal)
-                cell.addSubview(button)
             }
             else
             {
-                cell.textLabel?.text = data?[indexPath.row]
-                cell.detailTextLabel?.text = "\(data![indexPath.row])的详解"
+                let textField = UITextField(frame: CGRectMake(10.0,0.0,300.0,40.0))
+                textField.layer.borderWidth = 1
+                textField.tag = indexPath.row
+                textField.addTarget(self, action: #selector(CreateVoteViewController.textFieldValueChanged(_:)), forControlEvents: UIControlEvents.EditingChanged)
+                textField.text = data[indexPath.row]
+                cell.contentView.addSubview(textField)
+
             }
         }
         
@@ -135,9 +109,6 @@ class CreateVoteViewController: UIViewController,UITableViewDelegate,UITableView
     // cell的选中事件
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        // 确定该分组的内容
-        let str = allNames[indexPath.section]?[indexPath.row]
-        print("str\(str)")
     }
     
     // 设置单元格的编辑的样式
@@ -147,7 +118,7 @@ class CreateVoteViewController: UIViewController,UITableViewDelegate,UITableView
             if tableView.editing == false {
                 return UITableViewCellEditingStyle.None
             }
-            else if indexPath.row == allNames[indexPath.section]?.count {
+            else if indexPath.row == voteOptions.count {
                 return UITableViewCellEditingStyle.Insert
             }else {
                 return UITableViewCellEditingStyle.Delete
@@ -165,12 +136,12 @@ class CreateVoteViewController: UIViewController,UITableViewDelegate,UITableView
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         print(editingStyle);
         if editingStyle == UITableViewCellEditingStyle.Delete {
-            self.allNames[indexPath.section]?.removeAtIndex(indexPath.row)
+            voteOptions.removeAtIndex(indexPath.row)
         }
             
         else if editingStyle == UITableViewCellEditingStyle.Insert
         {
-            allNames[indexPath.section]?.insert("插入的", atIndex: indexPath.row)
+            voteOptions.insert("", atIndex: indexPath.row)
         }
         
         tableView.reloadData()
@@ -192,8 +163,19 @@ class CreateVoteViewController: UIViewController,UITableViewDelegate,UITableView
     
     func commit(sender: AnyObject) {
         print("commit")
+        self.voteDetail = ""
+        self.voteOptions = [String](["",""])
+        self.tableView.reloadData()
+        self.tabBarController?.selectedIndex = 0
     }
     
+    func textFieldValueChanged(sender: AnyObject) {
+        voteOptions[sender.tag] = sender.text
+    }
+    
+    func textViewDidChange(textView: UITextView) {
+        voteDetail = textView.text
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -73,10 +73,12 @@ class MyListViewController: UITableViewController {
         if (votings?.count == 0) {
             let sb = UIStoryboard(name: "Main", bundle:nil)
             let vc = sb.instantiateViewControllerWithIdentifier("activityViewController") as! ActivityViewController
+            vc.activityId = (item["_id"] as! String)
             self.navigationController!.pushViewController(vc, animated: true)
         } else {
             let sb = UIStoryboard(name: "Main", bundle:nil)
             let vc = sb.instantiateViewControllerWithIdentifier("voteViewController") as! VoteViewController
+            vc.activityId = (item["_id"] as! String)
             self.navigationController!.pushViewController(vc, animated: true)
         }
         

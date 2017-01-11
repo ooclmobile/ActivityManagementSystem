@@ -11,6 +11,7 @@ import UIKit
 class VoteViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     var tableView: UITableView?
+    var activityId = String()
     var questions: [String]?
     var answers: [String:[String]]?
     

@@ -47,12 +47,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创建者：Doris 创建日期：2017-01-08" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZLJ-KT-Tla">
-                                <rect key="frame" x="16" y="20" width="288" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bVk-cm-Uii">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <items>
@@ -111,6 +105,12 @@
                                     <constraint firstItem="uWa-St-g1a" firstAttribute="leading" secondItem="6lw-Ck-lgY" secondAttribute="leading" id="nm3-OI-c0x"/>
                                 </constraints>
                             </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创建者：Doris 创建日期：2017-01-08" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZLJ-KT-Tla">
+                                <rect key="frame" x="16" y="20" width="288" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -133,6 +133,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="xsy-D6-WMi"/>
                     <connections>
+                        <outlet property="activityLabel" destination="ZLJ-KT-Tla" id="muh-Fn-SLh"/>
                         <outlet property="tableView" destination="uWa-St-g1a" id="WqW-Iz-Bo4"/>
                         <outlet property="webView" destination="EEa-9V-WnS" id="k6A-MU-RBo"/>
                     </connections>

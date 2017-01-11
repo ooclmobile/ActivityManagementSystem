@@ -26,6 +26,7 @@ class CommentViewController: UIViewController {
     
     func commit(sender: AnyObject) {
         print("commit")
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     override func didReceiveMemoryWarning() {
