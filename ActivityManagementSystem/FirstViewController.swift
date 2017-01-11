@@ -13,7 +13,7 @@ class FirstViewController: UITableViewController {
     
     let url = "http://112.74.166.187:8443/api/activities"
     var activities = [NSDictionary]()
-    
+    var imageView = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -29,10 +29,20 @@ class FirstViewController: UITableViewController {
         Alamofire.request(.GET, url, parameters: params)
             .responseJSON {
                 response in
-                print(response.result.value)
                 self.activities = response.result.value as! [NSDictionary]
                 
                 print(self.activities.count)
+                self.tableView.reloadData()
+        }
+        Alamofire.request(.GET, "http://112.74.166.187:8443/api/popular-images")
+            .responseJSON {
+                response in
+                print(response.result.value)
+                let images = response.result.value as! [NSDictionary]
+                for image in images {
+                    self.imageView.append(image["link"] as! String)
+                }
+                print(self.imageView.count)
                 self.tableView.reloadData()
         }
         
@@ -79,9 +89,9 @@ class FirstViewController: UITableViewController {
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if (section == 0) {
             let frame = CGRectMake(0, 0, view.bounds.width, view.bounds.width*0.48)
-            let imageView = ["2.png","3.png","1.png"]
+            //let imageView = ["2.png","3.png","1.png"]
             
-            let loopView = XHAdLoopView(frame: frame, images: imageView, autoPlay: true, delay: 3, isFromNet: false)
+            let loopView = XHAdLoopView(frame: frame, images: self.imageView, autoPlay: true, delay: 3, isFromNet: true)
             loopView.delegate = self
             return loopView
         } else {
