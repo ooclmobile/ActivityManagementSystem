@@ -15,12 +15,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="ofF-WY-a1a">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="n1d-jT-MQ5" detailTextLabel="IQr-0b-pMz" style="IBUITableViewCellStyleSubtitle" id="ofF-WY-a1a">
                                 <rect key="frame" x="0.0" y="92" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ofF-WY-a1a" id="dsb-Zx-S6d">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="n1d-jT-MQ5">
+                                            <rect key="frame" x="15" y="5" width="32" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IQr-0b-pMz">
+                                            <rect key="frame" x="15" y="25" width="41" height="14"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -53,7 +69,7 @@
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="XRu-pk-o7B"/>
                                     <barButtonItem title="评论" id="LVd-Vw-tSB">
                                         <connections>
-                                            <segue destination="sHc-bf-kjV" kind="push" id="0aR-kg-uZ5"/>
+                                            <segue destination="sHc-bf-kjV" kind="push" identifier="comment" id="0aR-kg-uZ5"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="VKM-bt-ZeI"/>
@@ -134,6 +150,8 @@
                     <navigationItem key="navigationItem" id="xsy-D6-WMi"/>
                     <connections>
                         <outlet property="activityLabel" destination="ZLJ-KT-Tla" id="muh-Fn-SLh"/>
+                        <outlet property="collectBarButton" destination="Hxa-JD-WjN" id="NDM-fE-z15"/>
+                        <outlet property="likeBarButton" destination="0jw-E8-BdK" id="Za8-nY-HVO"/>
                         <outlet property="tableView" destination="uWa-St-g1a" id="WqW-Iz-Bo4"/>
                         <outlet property="webView" destination="EEa-9V-WnS" id="k6A-MU-RBo"/>
                     </connections>
@@ -182,10 +200,15 @@
         <scene sceneID="5h2-3U-tPU">
             <objects>
                 <navigationController id="tMX-Gc-kiF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="主页" image="first" id="spf-aL-eXs"/>
+                    <tabBarItem key="tabBarItem" title="主页" image="iconfont-select" id="spf-aL-eXs"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xvl-ao-hzn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.85882352939999995" green="0.85882352939999995" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="TeZ-yB-WhN" kind="relationship" relationship="rootViewController" id="fgP-9d-kYj"/>
@@ -232,6 +255,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6rw-Oe-SdO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.85882352941176465" green="0.85882352941176465" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="9bv-D8-lro" kind="relationship" relationship="rootViewController" id="DwK-ZR-mxa"/>
@@ -315,6 +343,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Dfm-hj-4Gm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.85882352939999995" green="0.85882352939999995" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="pSQ-49-4YO" kind="relationship" relationship="rootViewController" id="tYP-P1-TZn"/>
@@ -336,40 +369,83 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vCG-cC-PS4">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="用户名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vCG-cC-PS4">
                                 <rect key="frame" x="59" y="95" width="202" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sub-U4-YXa">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sub-U4-YXa">
                                 <rect key="frame" x="59" y="141" width="202" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N7y-gb-sgp">
-                                <rect key="frame" x="59" y="204" width="202" height="30"/>
+                                <rect key="frame" x="59" y="243" width="202" height="30"/>
                                 <state key="normal" title="登录"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColorFromUIColor">
+                                        <color key="value" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="login:" destination="Oi7-C0-0Hw" eventType="touchUpInside" id="bj3-by-v6z"/>
                                     <segue destination="49e-Tb-3d3" kind="modal" identifier="login" id="5c6-en-PhL"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wKy-Gp-Z4W">
+                                <rect key="frame" x="205" y="194" width="51" height="31"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="记住密码？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YN7-2G-BVj">
+                                <rect key="frame" x="65" y="194" width="108" height="31"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="N7y-gb-sgp" firstAttribute="top" secondItem="Sub-U4-YXa" secondAttribute="bottom" constant="33" id="QeW-zR-BZa"/>
-                            <constraint firstItem="vCG-cC-PS4" firstAttribute="top" secondItem="NPZ-WM-KcC" secondAttribute="bottom" constant="75" id="RZ3-Re-Gnl"/>
-                            <constraint firstItem="Sub-U4-YXa" firstAttribute="trailing" secondItem="N7y-gb-sgp" secondAttribute="trailing" id="WDU-Ee-5bd"/>
-                            <constraint firstItem="Sub-U4-YXa" firstAttribute="leading" secondItem="N7y-gb-sgp" secondAttribute="leading" id="ZlE-M5-Amh"/>
-                            <constraint firstItem="vCG-cC-PS4" firstAttribute="leading" secondItem="Cj9-qR-9kw" secondAttribute="leadingMargin" constant="43" id="dUC-oE-fWn"/>
-                            <constraint firstItem="Sub-U4-YXa" firstAttribute="top" secondItem="vCG-cC-PS4" secondAttribute="bottom" constant="16" id="gf6-Bf-0Z5"/>
-                            <constraint firstItem="vCG-cC-PS4" firstAttribute="trailing" secondItem="Sub-U4-YXa" secondAttribute="trailing" id="nSB-Q0-P7T"/>
-                            <constraint firstItem="vCG-cC-PS4" firstAttribute="centerX" secondItem="Cj9-qR-9kw" secondAttribute="centerX" id="rot-wx-luM"/>
-                            <constraint firstItem="vCG-cC-PS4" firstAttribute="leading" secondItem="Sub-U4-YXa" secondAttribute="leading" id="wM0-Ar-XSg"/>
+                            <constraint firstItem="Sub-U4-YXa" firstAttribute="leading" secondItem="N7y-gb-sgp" secondAttribute="leading" id="4AH-5P-MYS"/>
+                            <constraint firstItem="wKy-Gp-Z4W" firstAttribute="leading" secondItem="YN7-2G-BVj" secondAttribute="trailing" constant="32" id="A8Y-ER-epa"/>
+                            <constraint firstItem="N7y-gb-sgp" firstAttribute="top" secondItem="YN7-2G-BVj" secondAttribute="bottom" constant="18" id="FG3-28-I85"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wKy-Gp-Z4W" secondAttribute="trailing" constant="50" id="FdR-qX-Ig9"/>
+                            <constraint firstItem="YN7-2G-BVj" firstAttribute="top" secondItem="wKy-Gp-Z4W" secondAttribute="top" id="Ia7-XG-0vi"/>
+                            <constraint firstItem="vCG-cC-PS4" firstAttribute="leading" secondItem="Sub-U4-YXa" secondAttribute="leading" id="L99-sN-m0f"/>
+                            <constraint firstItem="YN7-2G-BVj" firstAttribute="top" secondItem="Sub-U4-YXa" secondAttribute="bottom" constant="23" id="TMq-CD-UV0"/>
+                            <constraint firstItem="Sub-U4-YXa" firstAttribute="trailing" secondItem="N7y-gb-sgp" secondAttribute="trailing" id="Ury-Wj-JBQ"/>
+                            <constraint firstItem="vCG-cC-PS4" firstAttribute="centerX" secondItem="Cj9-qR-9kw" secondAttribute="centerX" id="VHq-s5-9mo"/>
+                            <constraint firstItem="YN7-2G-BVj" firstAttribute="leading" secondItem="Cj9-qR-9kw" secondAttribute="leadingMargin" constant="49" id="WU0-8M-hUD"/>
+                            <constraint firstItem="YN7-2G-BVj" firstAttribute="bottom" secondItem="wKy-Gp-Z4W" secondAttribute="bottom" id="dVk-cR-ceF"/>
+                            <constraint firstItem="vCG-cC-PS4" firstAttribute="trailing" secondItem="Sub-U4-YXa" secondAttribute="trailing" id="mn4-XE-F0D"/>
+                            <constraint firstItem="Sub-U4-YXa" firstAttribute="top" secondItem="vCG-cC-PS4" secondAttribute="bottom" constant="16" id="prq-s8-aXf"/>
+                            <constraint firstItem="vCG-cC-PS4" firstAttribute="leading" secondItem="Cj9-qR-9kw" secondAttribute="leadingMargin" constant="43" id="rNQ-kb-f4o"/>
+                            <constraint firstItem="vCG-cC-PS4" firstAttribute="top" secondItem="NPZ-WM-KcC" secondAttribute="bottom" constant="75" id="zeI-cf-s3Z"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="password" destination="Sub-U4-YXa" id="5tb-2K-gcF"/>
+                        <outlet property="savePasswordSwitch" destination="wKy-Gp-Z4W" id="Esc-tZ-hpa"/>
                         <outlet property="user" destination="vCG-cC-PS4" id="UCs-Qr-ZvJ"/>
                     </connections>
                 </viewController>
@@ -387,6 +463,7 @@
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="tMX-Gc-kiF" kind="relationship" relationship="viewControllers" id="eAR-ar-83d"/>
@@ -401,6 +478,7 @@
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
+        <image name="iconfont-select" width="32" height="32"/>
         <image name="second" width="30" height="30"/>
     </resources>
 </document>

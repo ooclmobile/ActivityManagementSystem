@@ -134,7 +134,9 @@ class XHAdLoopView: UIView {
             if self.isFromNet == true {
                 let url = NSURL(string: self.currentImages![i] as! String)
                 let data = NSData(contentsOfURL: url!)
-                imageView.image = UIImage(data: data!)
+                if data != nil {
+                    imageView.image = UIImage(data: data!)
+                }
             }
             else{
                 imageView.image = UIImage(named: self.currentImages![i] as! String);

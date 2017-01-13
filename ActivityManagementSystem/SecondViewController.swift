@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class SecondViewController: UITableViewController {
 
@@ -56,7 +57,7 @@ class SecondViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
-        print("You deselected cell #\(indexPath.row)!")
+        //print("You deselected cell #\(indexPath.row)!")
         let row = indexPath.row
         switch (row) {
         case 0,1:
@@ -70,9 +71,13 @@ class SecondViewController: UITableViewController {
             self.navigationController!.pushViewController(vc, animated: true)
             break;
         case 2:
-            let sb = UIStoryboard(name: "Main", bundle:nil)
-            let vc = sb.instantiateViewControllerWithIdentifier("loginViewController") as! LoginViewController
-            self.presentViewController(vc, animated: true, completion: nil)
+            Alamofire.request(.GET, "http://112.74.166.187:8443/api/auth/signout").responseJSON {
+                response in
+                //print(response.result.value)
+                let sb = UIStoryboard(name: "Main", bundle:nil)
+                let vc = sb.instantiateViewControllerWithIdentifier("loginViewController") as! LoginViewController
+                self.presentViewController(vc, animated: true, completion: nil)
+            }
             break;
         default:
             break;

@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import Alamofire
 
 class CommentViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
-    
+    var activityId = String()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -25,8 +26,17 @@ class CommentViewController: UIViewController {
     }
     
     func commit(sender: AnyObject) {
-        print("commit")
-        self.navigationController?.popViewControllerAnimated(true)
+        //print("commit")
+        var headers:Dictionary = [String:String]()
+        headers["content-type"] = "application/json"
+        
+        var params = [String:AnyObject]()
+        params["content"] = self.textView.text
+        Alamofire.request(.POST, ("http://112.74.166.187:8443/api/activities/comments/publish/" + activityId), parameters:params , encoding: ParameterEncoding.JSON, headers: headers).responseJSON {
+            response in
+            //print(response.result.value)
+            self.navigationController?.popViewControllerAnimated(true)
+        }
     }
     
     override func didReceiveMemoryWarning() {

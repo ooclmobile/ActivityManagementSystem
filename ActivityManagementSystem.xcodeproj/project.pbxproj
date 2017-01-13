@@ -12,6 +12,7 @@
 		0402109B1E24DE65001A6C83 /* iconfont-select.png in Resources */ = {isa = PBXBuildFile; fileRef = 040210961E24DE65001A6C83 /* iconfont-select.png */; };
 		0402109C1E24DE65001A6C83 /* iconfont-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 040210971E24DE65001A6C83 /* iconfont-selected.png */; };
 		0402109E1E24DE78001A6C83 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0402109D1E24DE78001A6C83 /* 1.png */; };
+		040CC1171E2897840090C6E5 /* RequestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040CC1161E2897840090C6E5 /* RequestData.swift */; };
 		0456217D1E1E0DC700A26C73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0456217C1E1E0DC700A26C73 /* AppDelegate.swift */; };
 		0456217F1E1E0DC700A26C73 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0456217E1E1E0DC700A26C73 /* FirstViewController.swift */; };
 		045621811E1E0DC700A26C73 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045621801E1E0DC700A26C73 /* SecondViewController.swift */; };
@@ -55,6 +56,7 @@
 		040210961E24DE65001A6C83 /* iconfont-select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iconfont-select.png"; path = "../../sharing/resource/images/iconfont-select.png"; sourceTree = "<group>"; };
 		040210971E24DE65001A6C83 /* iconfont-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iconfont-selected.png"; path = "../../sharing/resource/images/iconfont-selected.png"; sourceTree = "<group>"; };
 		0402109D1E24DE78001A6C83 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 1.png; path = ../../sharing/resource/images/1.png; sourceTree = "<group>"; };
+		040CC1161E2897840090C6E5 /* RequestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestData.swift; sourceTree = "<group>"; };
 		045621791E1E0DC700A26C73 /* ActivityManagementSystem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ActivityManagementSystem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0456217C1E1E0DC700A26C73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0456217E1E1E0DC700A26C73 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				045621C51E234CB400A26C73 /* InputTableViewCell.swift */,
 				045621C71E2474A500A26C73 /* MyListViewController.swift */,
 				045621C91E24AF2C00A26C73 /* LoginViewController.swift */,
+				040CC1161E2897840090C6E5 /* RequestData.swift */,
 			);
 			path = ActivityManagementSystem;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				045621B81E20FE3D00A26C73 /* VoteViewController.swift in Sources */,
 				045621811E1E0DC700A26C73 /* SecondViewController.swift in Sources */,
 				045621C81E2474A500A26C73 /* MyListViewController.swift in Sources */,
+				040CC1171E2897840090C6E5 /* RequestData.swift in Sources */,
 				045621B61E2091BD00A26C73 /* XHAdLoopView.swift in Sources */,
 				0456217D1E1E0DC700A26C73 /* AppDelegate.swift in Sources */,
 				045621BA1E20FEAE00A26C73 /* ActivityViewController.swift in Sources */,

@@ -11,7 +11,6 @@ import Alamofire
 
 class MyListViewController: UITableViewController {
     
-    let url = "http://112.74.166.187:8443/api/activities"
     var activities = [NSDictionary]()
     
     override func viewDidLoad() {
@@ -19,17 +18,19 @@ class MyListViewController: UITableViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         loadData()
-        print(self.activities.count)
+        //print(self.activities.count)
     }
     
     func loadData(){
+        var url = "http://112.74.166.187:8443/api/activities/query/votings"
+        if self.title == "我的收藏" {
+            url = "http://112.74.166.187:8443/api/activities/query/collection"
+        }
         Alamofire.request(.GET, url, parameters: nil)
             .responseJSON {
                 response in
-                print(response.result.value)
-                self.activities = response.result.value as! [NSDictionary]
-                
-                print(self.activities.count)
+                let result = response.result.value as! NSDictionary
+                self.activities = result["data"] as! [NSDictionary]
                 self.tableView.reloadData()
         }
         
@@ -67,7 +68,7 @@ class MyListViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
-        print("You deselected cell #\(indexPath.row)!")
+        //print("You deselected cell #\(indexPath.row)!")
         let item = self.activities[indexPath.row]
         let votings = item["votings"] as? [NSDictionary]
         if (votings?.count == 0) {

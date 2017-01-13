@@ -134,7 +134,7 @@ class CreateVoteViewController: UIViewController,UITableViewDelegate,UITableView
     
     // 单元格编辑后的响应方法
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        print(editingStyle);
+        //print(editingStyle);
         if editingStyle == UITableViewCellEditingStyle.Delete {
             voteOptions.removeAtIndex(indexPath.row)
         }
@@ -162,9 +162,11 @@ class CreateVoteViewController: UIViewController,UITableViewDelegate,UITableView
     }
     
     func commit(sender: AnyObject) {
-        print("commit")
+        //print("commit")
         self.voteDetail = ""
-        self.voteOptions = [String](["",""])
+        self.voteOptions.removeAll()
+        voteOptions.insert("", atIndex: 0)
+        voteOptions.insert("", atIndex: 1)
         self.tableView.reloadData()
         self.tabBarController?.selectedIndex = 0
     }

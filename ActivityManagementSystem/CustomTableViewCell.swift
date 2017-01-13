@@ -53,6 +53,8 @@ class CustomTableViewCell: UITableViewCell {
             displayLab.textAlignment = NSTextAlignment.Left
             return displayLab
         }()
+        self.displayLab!.frame = CGRectMake(40, 0, 350, 40)
+        self.displayLab!.numberOfLines = 0
         self.contentView.addSubview(self.displayLab!)
         
     }
