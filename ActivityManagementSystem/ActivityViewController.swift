@@ -50,13 +50,21 @@ class ActivityViewController: UIViewController, UITableViewDataSource, UITableVi
         if activity["isCollected"] != nil && !(activity["isCollected"] is NSNull) {
             let isCollected = activity["isCollected"] as! Bool
             if isCollected {
-                self.collectBarButton.enabled = false
+                self.collectBarButton.image = UIImage.init(named: "favorite")
+                self.collectBarButton.tintColor = UIColor.orangeColor()
+            } else {
+                self.collectBarButton.image = UIImage.init(named: "favorite")
+                self.collectBarButton.tintColor = UIColor.lightGrayColor()
             }
         }
         if activity["isLiked"] != nil && !(activity["isLiked"] is NSNull) {
             let isLiked = activity["isLiked"] as! Bool
             if isLiked {
-                self.likeBarButton.enabled = false
+                self.likeBarButton.image = UIImage.init(named: "good")
+                self.likeBarButton.tintColor = UIColor.orangeColor()
+            } else {
+                self.likeBarButton.image = UIImage.init(named: "good")
+                self.likeBarButton.tintColor = UIColor.lightGrayColor()
             }
         }
         let collects = (activity["collects"] as! [String])

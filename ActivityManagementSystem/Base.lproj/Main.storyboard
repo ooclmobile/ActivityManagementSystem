@@ -10,27 +10,27 @@
         <scene sceneID="6u3-kd-RBu">
             <objects>
                 <tableViewController id="TeZ-yB-WhN" customClass="FirstViewController" customModule="ActivityManagementSystem" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="8hy-hj-Y1a">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="8hy-hj-Y1a">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="n1d-jT-MQ5" detailTextLabel="IQr-0b-pMz" style="IBUITableViewCellStyleSubtitle" id="ofF-WY-a1a">
-                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="n1d-jT-MQ5" detailTextLabel="IQr-0b-pMz" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="ofF-WY-a1a">
+                                <rect key="frame" x="0.0" y="92" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ofF-WY-a1a" id="dsb-Zx-S6d">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="n1d-jT-MQ5">
-                                            <rect key="frame" x="15" y="5" width="32" height="20"/>
+                                            <rect key="frame" x="15" y="13" width="32" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IQr-0b-pMz">
-                                            <rect key="frame" x="15" y="25" width="41" height="14"/>
+                                            <rect key="frame" x="15" y="33" width="41" height="14"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -68,18 +68,21 @@
                                 <items>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="XRu-pk-o7B"/>
                                     <barButtonItem title="评论" id="LVd-Vw-tSB">
+                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <segue destination="sHc-bf-kjV" kind="push" identifier="comment" id="0aR-kg-uZ5"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="VKM-bt-ZeI"/>
-                                    <barButtonItem title="点赞" id="0jw-E8-BdK">
+                                    <barButtonItem image="good" id="0jw-E8-BdK">
+                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="like:" destination="93g-4F-wlP" id="qui-Xx-5yX"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="RNY-t2-i3O"/>
-                                    <barButtonItem title="收藏" id="Hxa-JD-WjN">
+                                    <barButtonItem image="favorite" id="Hxa-JD-WjN">
+                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="collect:" destination="93g-4F-wlP" id="Sj0-M3-rhF"/>
                                         </connections>
@@ -172,10 +175,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oet-rW-Io6">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oet-rW-Io6">
                                 <rect key="frame" x="17" y="33" width="287" height="134"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <attributedString key="attributedText"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -200,7 +203,7 @@
         <scene sceneID="5h2-3U-tPU">
             <objects>
                 <navigationController id="tMX-Gc-kiF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="主页" image="iconfont-select" id="spf-aL-eXs"/>
+                    <tabBarItem key="tabBarItem" title="主页" image="home_line" selectedImage="home_shape" id="spf-aL-eXs"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xvl-ao-hzn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -251,7 +254,7 @@
         <scene sceneID="cy0-O4-Lod">
             <objects>
                 <navigationController id="w9m-6I-QbU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="发布" image="first" id="QIO-vv-76R"/>
+                    <tabBarItem key="tabBarItem" title="发布" image="round_add" id="QIO-vv-76R"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6rw-Oe-SdO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -339,7 +342,7 @@
         <scene sceneID="5Qp-UK-fXH">
             <objects>
                 <navigationController id="lJm-DQ-vtU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="我的" image="second" id="FOA-MA-Eg6"/>
+                    <tabBarItem key="tabBarItem" title="我的" image="my_line" selectedImage="my_shape" id="FOA-MA-Eg6"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Dfm-hj-4Gm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -453,10 +456,10 @@
             </objects>
             <point key="canvasLocation" x="-451" y="0.0"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--My Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController modalTransitionStyle="flipHorizontal" id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController modalTransitionStyle="flipHorizontal" id="49e-Tb-3d3" customClass="MyTabBarController" customModule="ActivityManagementSystem" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="ZlZ-46-f9x"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
@@ -477,8 +480,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="favorite" width="16" height="16"/>
         <image name="first" width="30" height="30"/>
-        <image name="iconfont-select" width="32" height="32"/>
-        <image name="second" width="30" height="30"/>
+        <image name="good" width="16" height="16"/>
+        <image name="home_line" width="17" height="16"/>
+        <image name="home_shape" width="17" height="16"/>
+        <image name="my_line" width="16" height="16"/>
+        <image name="my_shape" width="16" height="16"/>
+        <image name="round_add" width="16" height="16"/>
     </resources>
 </document>

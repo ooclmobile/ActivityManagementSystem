@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import XWSwiftRefresh
 
 class FirstViewController: UITableViewController {
     
@@ -19,21 +20,25 @@ class FirstViewController: UITableViewController {
         
         self.title = "主页"
         self.tableView.showsVerticalScrollIndicator = false;
+        self.tableView.addHeaderWithCallback {
+            [weak self] () -> () in
+            if let selfStrong = self {
+                selfStrong.upPullLoadData()
+                selfStrong.tableView.endHeaderRefreshing()
+            }
+        }
         loadData()
     }
     
-    func loadData(){
-        let params = ["name": "query"]
-        
-        Alamofire.request(.GET, "http://112.74.166.187:8443/api/activities", parameters: params)
-            .responseJSON {
-                response in
-                let result = response.result.value as! NSDictionary
-                self.activities = result["data"] as! [NSDictionary]
-                
-                //print(self.activities.count)
-                self.tableView.reloadData()
+    func upPullLoadData(){
+        //延迟执行 模拟网络延迟，实际开发中去掉
+        xwDelay(1) { () -> Void in
+            self.loadData()
+            self.tableView.headerView?.endRefreshing()
         }
+    }
+    
+    func loadData(){
         Alamofire.request(.GET, "http://112.74.166.187:8443/api/popular-images")
             .responseJSON {
                 response in
@@ -42,6 +47,15 @@ class FirstViewController: UITableViewController {
                     self.imageView.append(image["link"] as! String)
                 }
                 //print(self.imageView.count)
+                self.tableView.reloadData()
+        }
+        Alamofire.request(.GET, "http://112.74.166.187:8443/api/activities")
+            .responseJSON {
+                response in
+                let result = response.result.value as! NSDictionary
+                self.activities = result["data"] as! [NSDictionary]
+                
+                //print(self.activities.count)
                 self.tableView.reloadData()
         }
         
@@ -87,6 +101,8 @@ class FirstViewController: UITableViewController {
             cell.imageView?.image = image?.reSizeImage(CGSize(width: 48, height: 48))
         }
         cell.textLabel!.text = item["title"] as? String
+        cell.detailTextLabel!.text = item["summary"] as? String
+        cell.detailTextLabel!.numberOfLines = 0
         return cell
     }
     

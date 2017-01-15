@@ -21,7 +21,9 @@ class CommentViewController: UIViewController {
         self.textView.layer.borderWidth = 1
         self.textView.layer.borderColor = UIColor.grayColor().CGColor
         self.textView.layer.cornerRadius = 6
+        self.textView.selectedRange = NSMakeRange(0,0)
         self.textView.layer.masksToBounds = true
+        self.automaticallyAdjustsScrollViewInsets = false
         
     }
     

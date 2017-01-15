@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import Charts
 import Alamofire
 
-class VoteViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+class VoteViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ChartViewDelegate{
     
     var tableView: UITableView?
     var activityId = String()
@@ -18,6 +19,9 @@ class VoteViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var isVoted = false
     
     var selectedIndexPath: NSIndexPath?
+    var barChartView: BarChartView!
+    var testName = [String]()
+    var unitsSold = [Double]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +58,12 @@ class VoteViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let title = (votings[0]["title"] as! String)
         self.question = title
         self.answers = (votings[0]["options"] as! [NSDictionary])
-        
+        for option in answers {
+            let description = option["description"] as! String
+            let voteDetails = option["voteDetails"] as! [NSDictionary]
+            self.testName.append(description)
+            self.unitsSold.append(Double(voteDetails.count))
+        }
         self.initializeUserInterface()
     }
     
@@ -62,7 +71,7 @@ class VoteViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.automaticallyAdjustsScrollViewInsets = false
         // table view
         self.tableView = {
-            let tableView = UITableView(frame: CGRectMake(0, 64, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds)), style: UITableViewStyle.Grouped)
+            let tableView = UITableView(frame: CGRectMake(0, 64, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds)), style: UITableViewStyle.Plain)
             tableView.dataSource = self
             tableView.delegate = self
             return tableView
@@ -145,6 +154,55 @@ class VoteViewController: UIViewController, UITableViewDataSource, UITableViewDe
         titleLabel.sizeToFit()
         headerView.addSubview(titleLabel)
         return headerView
+    }
+    
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 300
+    }
+    
+    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = UIView()
+        footerView.backgroundColor = UIColor.whiteColor()
+        barChartView = BarChartView.init(frame: CGRectMake(0, 64, 200, 200))
+        
+        barChartView.delegate = self
+        
+        setChart(self.testName, values: self.unitsSold)
+        if self.isVoted {
+            return barChartView
+        } else {
+            return footerView
+        }
+    }
+    
+    func setChart(dataPoints: [String], values: [Double]) {
+        barChartView.descriptionText = ""
+        barChartView.noDataText = "You need to provide data for the chart."
+        
+        var dataEntries: [BarChartDataEntry] = []
+        
+        for i in 0..<dataPoints.count {
+            let dataEntry = BarChartDataEntry(value: values[i], xIndex: i)
+            dataEntries.append(dataEntry)
+        }
+        
+        let chartDataSet = BarChartDataSet(yVals: dataEntries, label: nil)
+        let chartData = BarChartData(xVals: testName, dataSet: chartDataSet)
+        barChartView.data = chartData
+        chartData.setDrawValues(false)
+        
+        
+        chartDataSet.colors = [UIColor(red: 250/255, green: 16/255, blue: 34/255, alpha: 1), UIColor(red: 235/255, green: 166/255, blue: 134/255, alpha: 1),UIColor(red: 135/255, green: 66/255, blue: 255/255, alpha: 1), UIColor(red: 35/255, green: 11/255, blue: 15/255, alpha: 1)]
+        barChartView.xAxis.labelPosition = .Bottom
+    }
+    
+    
+    func chartValueSelected(chartView: ChartViewBase, entry: ChartDataEntry, dataSetIndex: Int, highlight: ChartHighlight) {
+        
+        //need to set chartData.setDrawValues(true)
+    }
+    
+    func setLabels() {
     }
     
     override func viewWillAppear(animated: Bool) {

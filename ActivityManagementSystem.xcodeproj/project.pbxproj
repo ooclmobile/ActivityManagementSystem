@@ -30,6 +30,7 @@
 		045621C61E234CB400A26C73 /* InputTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045621C51E234CB400A26C73 /* InputTableViewCell.swift */; };
 		045621C81E2474A500A26C73 /* MyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045621C71E2474A500A26C73 /* MyListViewController.swift */; };
 		045621CA1E24AF2C00A26C73 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045621C91E24AF2C00A26C73 /* LoginViewController.swift */; };
+		04704A381E2B382000A0EA79 /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04704A371E2B382000A0EA79 /* MyTabBarController.swift */; };
 		2135BD06B0799A4EE93AAAF6 /* Pods_ActivityManagementSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA9D4ABDCE4C4616C2CC7CFE /* Pods_ActivityManagementSystem.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,7 @@
 		045621C51E234CB400A26C73 /* InputTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputTableViewCell.swift; sourceTree = "<group>"; };
 		045621C71E2474A500A26C73 /* MyListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyListViewController.swift; sourceTree = "<group>"; };
 		045621C91E24AF2C00A26C73 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		04704A371E2B382000A0EA79 /* MyTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
 		54225CA2FB03801AFD0184FD /* Pods-ActivityManagementSystem.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActivityManagementSystem.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ActivityManagementSystem/Pods-ActivityManagementSystem.debug.xcconfig"; sourceTree = "<group>"; };
 		97B012D33BC91175B51C4300 /* Pods-ActivityManagementSystem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActivityManagementSystem.release.xcconfig"; path = "Pods/Target Support Files/Pods-ActivityManagementSystem/Pods-ActivityManagementSystem.release.xcconfig"; sourceTree = "<group>"; };
 		CA9D4ABDCE4C4616C2CC7CFE /* Pods_ActivityManagementSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ActivityManagementSystem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,6 +156,7 @@
 				045621C71E2474A500A26C73 /* MyListViewController.swift */,
 				045621C91E24AF2C00A26C73 /* LoginViewController.swift */,
 				040CC1161E2897840090C6E5 /* RequestData.swift */,
+				04704A371E2B382000A0EA79 /* MyTabBarController.swift */,
 			);
 			path = ActivityManagementSystem;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				045621BA1E20FEAE00A26C73 /* ActivityViewController.swift in Sources */,
 				045621B41E1F7B6500A26C73 /* CreateVoteViewController.swift in Sources */,
 				0456217F1E1E0DC700A26C73 /* FirstViewController.swift in Sources */,
+				04704A381E2B382000A0EA79 /* MyTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

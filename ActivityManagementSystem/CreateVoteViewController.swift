@@ -8,6 +8,8 @@
 
 
 import UIKit
+import Alamofire
+
 class CreateVoteViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextViewDelegate {
     
     var tableView:UITableView!
@@ -76,8 +78,10 @@ class CreateVoteViewController: UIViewController,UITableViewDelegate,UITableView
             //cell = InputTableViewCell()
             cell = UITableViewCell.init(style: UITableViewCellStyle.Subtitle, reuseIdentifier: identify)
             let textView = UITextView(frame:CGRectMake(10.0, 20.0, 390.0, 80.0))
-            textView.layer.borderWidth = 1
-            textView.layer.cornerRadius = 6
+            //textView.layer.borderWidth = 1
+            //textView.layer.cornerRadius = 6
+            textView.layer.borderColor = UIColor.blackColor().CGColor
+            textView.font = UIFont.systemFontOfSize(17)
             textView.delegate = self
             textView.text = voteDetail
             cell.contentView.addSubview(textView)
@@ -163,12 +167,35 @@ class CreateVoteViewController: UIViewController,UITableViewDelegate,UITableView
     
     func commit(sender: AnyObject) {
         //print("commit")
-        self.voteDetail = ""
-        self.voteOptions.removeAll()
-        voteOptions.insert("", atIndex: 0)
-        voteOptions.insert("", atIndex: 1)
-        self.tableView.reloadData()
-        self.tabBarController?.selectedIndex = 0
+        var headers:Dictionary = [String:String]()
+        headers["content-type"] = "application/json"
+        
+        var params:Dictionary = [String:AnyObject]()
+        params["title"] = self.voteDetail
+        params["description"] = self.voteDetail
+        params["selectionType"] = "single" //multi
+        var options = [AnyObject]()
+        var optionItem = [String:AnyObject]()
+        var  i = 1
+        for option in self.voteOptions {
+            optionItem["sequence"] = i
+            optionItem["description"] = option
+            options.append(optionItem)
+            i = i + 1
+        }
+        params["options"] = options
+        print(params)
+        
+        Alamofire.request(.POST, "http://112.74.166.187:8443/api/activities/votings/create", parameters:params , encoding: ParameterEncoding.JSON, headers: headers).responseJSON {
+            response in
+            print(response.result.value)
+            self.voteDetail = ""
+            self.voteOptions.removeAll()
+            self.voteOptions.insert("", atIndex: 0)
+            self.voteOptions.insert("", atIndex: 1)
+            self.tableView.reloadData()
+            self.tabBarController?.selectedIndex = 0
+        }
     }
     
     func textFieldValueChanged(sender: AnyObject) {
