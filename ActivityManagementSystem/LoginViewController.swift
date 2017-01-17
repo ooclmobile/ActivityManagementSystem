@@ -50,6 +50,7 @@ class LoginViewController: UIViewController {
                 } else {
                     NSUserDefaults.standardUserDefaults().setObject("0", forKey: "savePassword")
                 }
+                NSUserDefaults.standardUserDefaults().setObject(true, forKey: "Logined")
                 self.performSegueWithIdentifier("login", sender: self)
             }
         }

@@ -24,7 +24,7 @@ class ActivityManagementSystemTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        self.waitForExpectationsWithTimeout(5.0, handler: nil)
+        //self.waitForExpectationsWithTimeout(5.0, handler: nil)
     }
     
     func testPerformanceRequestData() {

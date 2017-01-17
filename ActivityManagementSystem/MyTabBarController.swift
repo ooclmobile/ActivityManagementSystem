@@ -24,7 +24,7 @@ class MyTabBarController: UITabBarController {
         items[0].selectedImage = tabbar0SelectedImage!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         items[1].selectedImage = tabbar1SelectedImage!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         items[2].selectedImage = tabbar2SelectedImage!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
-        self.tabBar.tintColor = UIColor.yellowColor()
+        self.tabBar.tintColor = UIColor.orangeColor()
     }
     
     override func didReceiveMemoryWarning() {

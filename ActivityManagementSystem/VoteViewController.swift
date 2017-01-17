@@ -48,6 +48,8 @@ class VoteViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func refreshData(activity: NSDictionary) {
         question.removeAll()
         answers.removeAll()
+        self.testName.removeAll()
+        self.unitsSold.removeAll()
         let votings = (activity["votings"] as! [NSDictionary])
         if votings[0]["isVoted"] != nil && !(votings[0]["isVoted"] is NSNull) {
         self.isVoted = votings[0]["isVoted"] as! Bool
@@ -60,9 +62,11 @@ class VoteViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.answers = (votings[0]["options"] as! [NSDictionary])
         for option in answers {
             let description = option["description"] as! String
+            if option["voteDetails"] != nil && !(option["voteDetails"] is NSNull) {
             let voteDetails = option["voteDetails"] as! [NSDictionary]
             self.testName.append(description)
             self.unitsSold.append(Double(voteDetails.count))
+            }
         }
         self.initializeUserInterface()
     }
@@ -89,12 +93,15 @@ class VoteViewController: UIViewController, UITableViewDataSource, UITableViewDe
         headers["content-type"] = "application/json"
         
         var params = [String:AnyObject]()
-        params["selection"] = self.selectedIndexPath!.row
+        params["selection"] = (self.selectedIndexPath!.row + 1)
         Alamofire.request(.POST, ("http://112.74.166.187:8443/api/activities/action/vote/" + activityId + "/0"), parameters:params , encoding: ParameterEncoding.JSON, headers: headers).responseJSON {
             response in
+            //print(response.result.value)
+            if response.result.value != nil {
             let result = response.result.value as! NSDictionary
             let activity = result["data"] as! NSDictionary
             self.refreshData(activity)
+            }
         }
     }
     

@@ -47,4 +47,8 @@ class ActivityManagementSystemUITests: XCTestCase {
         
     }
     
+    func testUI() {
+    
+    }
+    
 }

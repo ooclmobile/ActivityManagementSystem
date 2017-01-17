@@ -96,8 +96,9 @@ class CreateVoteViewController: UIViewController,UITableViewDelegate,UITableView
             }
             else
             {
-                let textField = UITextField(frame: CGRectMake(10.0,0.0,300.0,40.0))
+                let textField = UITextField(frame: CGRectMake(10.0,3.5,300.0,40.0))
                 textField.layer.borderWidth = 1
+                textField.layer.cornerRadius = 6
                 textField.tag = indexPath.row
                 textField.addTarget(self, action: #selector(CreateVoteViewController.textFieldValueChanged(_:)), forControlEvents: UIControlEvents.EditingChanged)
                 textField.text = data[indexPath.row]
@@ -184,16 +185,17 @@ class CreateVoteViewController: UIViewController,UITableViewDelegate,UITableView
             i = i + 1
         }
         params["options"] = options
-        print(params)
+        //print(params)
         
         Alamofire.request(.POST, "http://112.74.166.187:8443/api/activities/votings/create", parameters:params , encoding: ParameterEncoding.JSON, headers: headers).responseJSON {
             response in
-            print(response.result.value)
+            //print(response.result.value)
             self.voteDetail = ""
             self.voteOptions.removeAll()
             self.voteOptions.insert("", atIndex: 0)
             self.voteOptions.insert("", atIndex: 1)
             self.tableView.reloadData()
+            NSNotificationCenter.defaultCenter().postNotificationName("reloadViewNotification", object: nil, userInfo: nil)
             self.tabBarController?.selectedIndex = 0
         }
     }

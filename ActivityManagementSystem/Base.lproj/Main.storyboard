@@ -67,22 +67,22 @@
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <items>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="XRu-pk-o7B"/>
-                                    <barButtonItem title="评论" id="LVd-Vw-tSB">
-                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <barButtonItem image="comment" id="LVd-Vw-tSB">
+                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <connections>
                                             <segue destination="sHc-bf-kjV" kind="push" identifier="comment" id="0aR-kg-uZ5"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="VKM-bt-ZeI"/>
                                     <barButtonItem image="good" id="0jw-E8-BdK">
-                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <connections>
                                             <action selector="like:" destination="93g-4F-wlP" id="qui-Xx-5yX"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="RNY-t2-i3O"/>
                                     <barButtonItem image="favorite" id="Hxa-JD-WjN">
-                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <connections>
                                             <action selector="collect:" destination="93g-4F-wlP" id="Sj0-M3-rhF"/>
                                         </connections>
@@ -90,13 +90,6 @@
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="hqg-Zw-54m"/>
                                 </items>
                             </toolbar>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EEa-9V-WnS">
-                                <rect key="frame" x="11" y="41" width="299" height="255"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="255" id="4G4-mh-53R"/>
-                                </constraints>
-                            </webView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="评论:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Tv-31-VcQ">
                                 <rect key="frame" x="11" y="304" width="42" height="21"/>
                                 <constraints>
@@ -130,6 +123,13 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <webView contentMode="scaleToFill" allowsInlineMediaPlayback="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EEa-9V-WnS">
+                                <rect key="frame" x="11" y="41" width="299" height="255"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="255" id="4G4-mh-53R"/>
+                                </constraints>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -276,17 +276,33 @@
         <scene sceneID="cyk-jB-LOC">
             <objects>
                 <tableViewController storyboardIdentifier="myListViewController" hidesBottomBarWhenPushed="YES" id="fTs-fb-K27" customClass="MyListViewController" customModule="ActivityManagementSystem" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="goQ-Nn-pVS">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="goQ-Nn-pVS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="myListCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="myListCell" id="9DS-Xl-kZw">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="myListCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="myListCell" textLabel="f32-FS-b2Z" detailTextLabel="0qd-W4-5iH" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="9DS-Xl-kZw">
+                                <rect key="frame" x="0.0" y="28" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9DS-Xl-kZw" id="11o-1g-cMF">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="f32-FS-b2Z">
+                                            <rect key="frame" x="15" y="13" width="32" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0qd-W4-5iH">
+                                            <rect key="frame" x="15" y="33" width="41" height="14"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -303,7 +319,7 @@
         <!--Vote View Controller-->
         <scene sceneID="RVX-AN-Mbb">
             <objects>
-                <viewController storyboardIdentifier="voteViewController" id="sxq-yy-gP4" customClass="VoteViewController" customModule="ActivityManagementSystem" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="voteViewController" hidesBottomBarWhenPushed="YES" id="sxq-yy-gP4" customClass="VoteViewController" customModule="ActivityManagementSystem" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jDL-mE-i2C"/>
                         <viewControllerLayoutGuide type="bottom" id="OSH-N6-cke"/>
@@ -459,7 +475,7 @@
         <!--My Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController modalTransitionStyle="flipHorizontal" id="49e-Tb-3d3" customClass="MyTabBarController" customModule="ActivityManagementSystem" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="abc" modalTransitionStyle="flipHorizontal" id="49e-Tb-3d3" customClass="MyTabBarController" customModule="ActivityManagementSystem" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="ZlZ-46-f9x"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
@@ -480,6 +496,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="comment" width="16" height="16"/>
         <image name="favorite" width="16" height="16"/>
         <image name="first" width="30" height="30"/>
         <image name="good" width="16" height="16"/>

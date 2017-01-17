@@ -74,6 +74,7 @@ class SecondViewController: UITableViewController {
             Alamofire.request(.GET, "http://112.74.166.187:8443/api/auth/signout").responseJSON {
                 response in
                 //print(response.result.value)
+                NSUserDefaults.standardUserDefaults().setObject(false, forKey: "Logined")
                 let sb = UIStoryboard(name: "Main", bundle:nil)
                 let vc = sb.instantiateViewControllerWithIdentifier("loginViewController") as! LoginViewController
                 self.presentViewController(vc, animated: true, completion: nil)

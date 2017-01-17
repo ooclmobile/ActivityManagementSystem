@@ -55,15 +55,29 @@ class MyListViewController: UITableViewController {
         let row = indexPath.row
         let item = self.activities[row]
         let votings = item["votings"] as? [NSDictionary]
-        if (votings?.count == 0) {
-            let image = UIImage(named:"1.png")
-            cell.imageView?.image = image
+        let attachments = item["attachments"] as? [NSDictionary]
+        if attachments!.count == 0 {
+            if (votings?.count == 0) {
+                let url = NSURL(string: "http://112.74.166.187:8443/modules/activities/client/img/news.jpg")
+                let data = NSData(contentsOfURL: url!)
+                let image = UIImage(data: data!)
+                cell.imageView?.image = image?.reSizeImage(CGSize(width: 48, height: 48))
+            } else {
+                let url = NSURL(string: "http://112.74.166.187:8443/modules/activities/client/img/vote.jpg")
+                let data = NSData(contentsOfURL: url!)
+                let image = UIImage(data: data!)
+                cell.imageView?.image = image?.reSizeImage(CGSize(width: 48, height: 48))
+            }
         } else {
-            let image = UIImage(named:"2.png")
-            cell.imageView?.image = image
+            let urlStr = attachments![0]["link"] as! String
+            let url = NSURL(string: urlStr)
+            let data = NSData(contentsOfURL: url!)
+            let image = UIImage(data: data!)
+            cell.imageView?.image = image?.reSizeImage(CGSize(width: 48, height: 48))
         }
         cell.textLabel!.text = item["title"] as? String
-
+        cell.detailTextLabel!.text = item["summary"] as? String
+        cell.detailTextLabel!.numberOfLines = 0
         return cell
     }
     

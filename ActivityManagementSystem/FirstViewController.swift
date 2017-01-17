@@ -20,11 +20,15 @@ class FirstViewController: UITableViewController {
         
         self.title = "主页"
         self.tableView.showsVerticalScrollIndicator = false;
+        NSNotificationCenter.defaultCenter().addObserver(self,
+                                                         selector: #selector(FirstViewController.loadData),
+                                                         name: "reloadViewNotification",
+                                                         object: nil)
         self.tableView.addHeaderWithCallback {
             [weak self] () -> () in
             if let selfStrong = self {
                 selfStrong.upPullLoadData()
-                selfStrong.tableView.endHeaderRefreshing()
+//                selfStrong.tableView.endHeaderRefreshing()
             }
         }
         loadData()
@@ -32,10 +36,20 @@ class FirstViewController: UITableViewController {
     
     func upPullLoadData(){
         //延迟执行 模拟网络延迟，实际开发中去掉
-        xwDelay(1) { () -> Void in
-            self.loadData()
-            self.tableView.headerView?.endRefreshing()
+//        xwDelay(1) { () -> Void in
+//            self.loadData()
+        
+        Alamofire.request(.GET, "http://112.74.166.187:8443/api/activities")
+            .responseJSON {
+                response in
+                let result = response.result.value as! NSDictionary
+                self.activities = result["data"] as! [NSDictionary]
+                
+                //print(self.activities.count)
+                self.tableView.reloadData()
+                self.tableView.headerView?.endRefreshing()
         }
+//        }
     }
     
     func loadData(){
@@ -43,6 +57,7 @@ class FirstViewController: UITableViewController {
             .responseJSON {
                 response in
                 let images = response.result.value as! [NSDictionary]
+                self.imageView.removeAll()
                 for image in images {
                     self.imageView.append(image["link"] as! String)
                 }
@@ -147,6 +162,9 @@ class FirstViewController: UITableViewController {
         
     }
     
+//    override func viewWillAppear(animated: Bool) {
+//        //loadData()
+//    }
 
 }
 

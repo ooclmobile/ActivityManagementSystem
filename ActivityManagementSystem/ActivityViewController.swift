@@ -54,7 +54,7 @@ class ActivityViewController: UIViewController, UITableViewDataSource, UITableVi
                 self.collectBarButton.tintColor = UIColor.orangeColor()
             } else {
                 self.collectBarButton.image = UIImage.init(named: "favorite")
-                self.collectBarButton.tintColor = UIColor.lightGrayColor()
+                self.collectBarButton.tintColor = UIColor.blackColor()
             }
         }
         if activity["isLiked"] != nil && !(activity["isLiked"] is NSNull) {
@@ -64,7 +64,7 @@ class ActivityViewController: UIViewController, UITableViewDataSource, UITableVi
                 self.likeBarButton.tintColor = UIColor.orangeColor()
             } else {
                 self.likeBarButton.image = UIImage.init(named: "good")
-                self.likeBarButton.tintColor = UIColor.lightGrayColor()
+                self.likeBarButton.tintColor = UIColor.blackColor()
             }
         }
         let collects = (activity["collects"] as! [String])
