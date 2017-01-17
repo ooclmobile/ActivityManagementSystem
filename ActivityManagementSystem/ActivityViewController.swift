@@ -24,8 +24,8 @@ class ActivityViewController: UIViewController, UITableViewDataSource, UITableVi
         // Do any additional setup after loading the view, typically from a nib.
         
         self.title = "详情"
-        tableView.delegate = self
-        tableView.dataSource = self
+//        tableView.delegate = self
+//        tableView.dataSource = self
         tableView.registerClass(UITableViewCell.self,forCellReuseIdentifier: "cell")
         tableView.estimatedRowHeight = 44.0
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -33,6 +33,10 @@ class ActivityViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func loadData() {
+        let url = NSURL(string: ("http://112.74.166.187:8443/activities/" + activityId + "/mobile"));
+        let request = NSURLRequest(URL: url!);
+        self.webView.loadRequest(request)
+        
         Alamofire.request(.GET, ("http://112.74.166.187:8443/api/activities/" + activityId))
             .responseJSON {
                 response in
@@ -72,8 +76,8 @@ class ActivityViewController: UIViewController, UITableViewDataSource, UITableVi
         let detail = likes.count.description + "赞 " + collects.count.description + "收藏"
         self.activityLabel.text = "创建者：" + createdBy + " 创建日期：" + created.substringToIndex(10) + " " + detail
         self.activityLabel.sizeToFit()
-        self.webView.loadHTMLString(self.htmlContent.stringByReplacingOccurrencesOfString("/./", withString: "http://112.74.166.187:8443/", options: NSStringCompareOptions.LiteralSearch, range: nil),baseURL:nil)
-        self.tableView.reloadData()
+//        self.webView.loadHTMLString(self.htmlContent.stringByReplacingOccurrencesOfString("/./", withString: "http://112.74.166.187:8443/", options: NSStringCompareOptions.LiteralSearch, range: nil),baseURL:nil)
+//        self.tableView.reloadData()
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -117,6 +121,7 @@ class ActivityViewController: UIViewController, UITableViewDataSource, UITableVi
         Alamofire.request(.GET, ("http://112.74.166.187:8443/api/activities/action/like/" + activityId))
             .responseJSON {
                 response in
+                self.loadData()
                 let result = response.result.value as! NSDictionary
                 let activity = result["data"] as! NSDictionary
                 self.refreshData(activity)
@@ -127,6 +132,7 @@ class ActivityViewController: UIViewController, UITableViewDataSource, UITableVi
         Alamofire.request(.GET, ("http://112.74.166.187:8443/api/activities/action/collect/" + activityId))
             .responseJSON {
                 response in
+                self.loadData()
                 let result = response.result.value as! NSDictionary
                 let activity = result["data"] as! NSDictionary
                 self.refreshData(activity)

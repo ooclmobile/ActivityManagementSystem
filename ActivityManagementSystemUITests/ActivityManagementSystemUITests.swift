@@ -33,7 +33,7 @@ class ActivityManagementSystemUITests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         
         let app = XCUIApplication()
-        app.buttons["登录"].tap()
+        //app.buttons["登录"].tap()
         
         let tablesQuery = app.tables
         tablesQuery.staticTexts["年会流程"].tap()

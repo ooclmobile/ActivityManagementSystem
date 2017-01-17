@@ -12,7 +12,7 @@ import Alamofire
 class RequestData: NSObject{
     
     func request() {
-        Alamofire.request(.GET, "http://112.74.166.187:8443/api/activities")
+        Alamofire.request(.GET, self.getUrl() + "/api/activities")
             .responseJSON {
                 response in
                 let result = response.result.value as! NSDictionary
@@ -20,6 +20,14 @@ class RequestData: NSObject{
                 print(activities.count)
 
         }
+    }
+    
+    func getUrl() -> String{
+        let plistPath = NSBundle.mainBundle().pathForResource("Info", ofType: "plist")
+        let dictData = NSDictionary(contentsOfFile: plistPath!)
+        let host = dictData?.valueForKey("Host") as! String
+        let port = dictData?.valueForKey("Port") as! String
+        return host + ":" + port
     }
 
 }
