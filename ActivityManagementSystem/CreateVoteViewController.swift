@@ -77,7 +77,7 @@ class CreateVoteViewController: UIViewController,UITableViewDelegate,UITableView
         if secno == 0 {
             //cell = InputTableViewCell()
             cell = UITableViewCell.init(style: UITableViewCellStyle.Subtitle, reuseIdentifier: identify)
-            let textView = UITextView(frame:CGRectMake(10.0, 20.0, 390.0, 80.0))
+            let textView = UITextView(frame:CGRectMake(10.0, 20.0, self.view.frame.size.width - 30, 80.0))
             //textView.layer.borderWidth = 1
             //textView.layer.cornerRadius = 6
             textView.layer.borderColor = UIColor.blackColor().CGColor
@@ -96,7 +96,7 @@ class CreateVoteViewController: UIViewController,UITableViewDelegate,UITableView
             }
             else
             {
-                let textField = UITextField(frame: CGRectMake(10.0,3.5,300.0,40.0))
+                let textField = UITextField(frame: CGRectMake(10.0,3.5,self.view.frame.size.width - 80,40.0))
                 textField.layer.borderWidth = 1
                 textField.layer.cornerRadius = 6
                 textField.tag = indexPath.row

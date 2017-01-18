@@ -36,10 +36,10 @@ class ActivityManagementSystemUITests: XCTestCase {
         //app.buttons["登录"].tap()
         
         let tablesQuery = app.tables
-        tablesQuery.staticTexts["年会流程"].tap()
+        tablesQuery.staticTexts["2017 OOCL年会"].tap()
         app.navigationBars["详情"].buttons["主页"].tap()
-        tablesQuery.staticTexts["Next Team Build"].tap()
-        app.navigationBars["投票"].buttons["主页"].tap()
+        tablesQuery.staticTexts["圣诞礼物交换"].tap()
+        app.navigationBars["详情"].buttons["主页"].tap()
         app.tabBars.buttons["我的"].tap()
         tablesQuery.staticTexts["我的收藏"].tap()
         app.navigationBars["我的收藏"].buttons["我的"].tap()
@@ -48,7 +48,13 @@ class ActivityManagementSystemUITests: XCTestCase {
     }
     
     func testUI() {
-    
+        
+        let app = XCUIApplication()
+        let tablesQuery = app.tables
+        tablesQuery.staticTexts["[Voting]:Test11"].tap()
+        app.navigationBars["投票"].buttons["主页"].tap()
+        tablesQuery.staticTexts["礼物多多，惊喜多多! 大家都交换到自己喜欢的礼物吗？不满意礼物？没关系， 明年还有机会哦！"].tap()
+        
     }
     
 }

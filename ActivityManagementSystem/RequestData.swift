@@ -25,8 +25,9 @@ class RequestData: NSObject{
     func getUrl() -> String{
         let plistPath = NSBundle.mainBundle().pathForResource("Info", ofType: "plist")
         let dictData = NSDictionary(contentsOfFile: plistPath!)
-        let host = dictData?.valueForKey("Host") as! String
-        let port = dictData?.valueForKey("Port") as! String
+        let url = dictData?.valueForKey("URL") as! NSDictionary
+        let host = url.valueForKey("Host") as! String
+        let port = url.valueForKey("Port") as! String
         return host + ":" + port
     }
 

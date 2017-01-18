@@ -138,25 +138,15 @@
 		0456217B1E1E0DC700A26C73 /* ActivityManagementSystem */ = {
 			isa = PBXGroup;
 			children = (
+				0460EF821E2EFFAC002E0E2C /* Util */,
+				0460EF811E2EFF89002E0E2C /* View */,
+				0460EF801E2EFF3E002E0E2C /* Controller */,
 				045621AC1E1E173200A26C73 /* images */,
 				0456217C1E1E0DC700A26C73 /* AppDelegate.swift */,
-				0456217E1E1E0DC700A26C73 /* FirstViewController.swift */,
-				045621B51E2091BD00A26C73 /* XHAdLoopView.swift */,
-				045621801E1E0DC700A26C73 /* SecondViewController.swift */,
 				045621821E1E0DC700A26C73 /* Main.storyboard */,
 				045621851E1E0DC700A26C73 /* Assets.xcassets */,
 				045621871E1E0DC700A26C73 /* LaunchScreen.storyboard */,
 				0456218A1E1E0DC700A26C73 /* Info.plist */,
-				045621B31E1F7B6500A26C73 /* CreateVoteViewController.swift */,
-				045621B71E20FE3D00A26C73 /* VoteViewController.swift */,
-				045621BD1E210BAD00A26C73 /* CustomTableViewCell.swift */,
-				045621B91E20FEAE00A26C73 /* ActivityViewController.swift */,
-				045621BB1E20FF2200A26C73 /* CommentViewController.swift */,
-				045621C51E234CB400A26C73 /* InputTableViewCell.swift */,
-				045621C71E2474A500A26C73 /* MyListViewController.swift */,
-				045621C91E24AF2C00A26C73 /* LoginViewController.swift */,
-				040CC1161E2897840090C6E5 /* RequestData.swift */,
-				04704A371E2B382000A0EA79 /* MyTabBarController.swift */,
 			);
 			path = ActivityManagementSystem;
 			sourceTree = "<group>";
@@ -190,6 +180,40 @@
 			);
 			name = images;
 			path = ../../resource/images;
+			sourceTree = "<group>";
+		};
+		0460EF801E2EFF3E002E0E2C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				045621B31E1F7B6500A26C73 /* CreateVoteViewController.swift */,
+				045621801E1E0DC700A26C73 /* SecondViewController.swift */,
+				045621B71E20FE3D00A26C73 /* VoteViewController.swift */,
+				045621B91E20FEAE00A26C73 /* ActivityViewController.swift */,
+				045621BB1E20FF2200A26C73 /* CommentViewController.swift */,
+				045621C71E2474A500A26C73 /* MyListViewController.swift */,
+				045621C91E24AF2C00A26C73 /* LoginViewController.swift */,
+				04704A371E2B382000A0EA79 /* MyTabBarController.swift */,
+				0456217E1E1E0DC700A26C73 /* FirstViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		0460EF811E2EFF89002E0E2C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				045621C51E234CB400A26C73 /* InputTableViewCell.swift */,
+				045621BD1E210BAD00A26C73 /* CustomTableViewCell.swift */,
+				045621B51E2091BD00A26C73 /* XHAdLoopView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		0460EF821E2EFFAC002E0E2C /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				040CC1161E2897840090C6E5 /* RequestData.swift */,
+			);
+			name = Util;
 			sourceTree = "<group>";
 		};
 		6D416FF0C588A714D1CB0DC2 /* Pods */ = {
@@ -280,6 +304,7 @@
 				TargetAttributes = {
 					045621781E1E0DC700A26C73 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 34FG2TA9CA;
 					};
 					0456218E1E1E0DC800A26C73 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -554,10 +579,13 @@
 			baseConfigurationReference = 54225CA2FB03801AFD0184FD /* Pods-ActivityManagementSystem.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ActivityManagementSystem/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.oocl.ActivityManagementSystem;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -567,10 +595,13 @@
 			baseConfigurationReference = 97B012D33BC91175B51C4300 /* Pods-ActivityManagementSystem.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ActivityManagementSystem/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.oocl.ActivityManagementSystem;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

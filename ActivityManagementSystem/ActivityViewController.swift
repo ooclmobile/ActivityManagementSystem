@@ -121,7 +121,7 @@ class ActivityViewController: UIViewController, UITableViewDataSource, UITableVi
         Alamofire.request(.GET, ("http://112.74.166.187:8443/api/activities/action/like/" + activityId))
             .responseJSON {
                 response in
-                self.loadData()
+                //self.loadData()
                 let result = response.result.value as! NSDictionary
                 let activity = result["data"] as! NSDictionary
                 self.refreshData(activity)
@@ -132,7 +132,7 @@ class ActivityViewController: UIViewController, UITableViewDataSource, UITableVi
         Alamofire.request(.GET, ("http://112.74.166.187:8443/api/activities/action/collect/" + activityId))
             .responseJSON {
                 response in
-                self.loadData()
+                //self.loadData()
                 let result = response.result.value as! NSDictionary
                 let activity = result["data"] as! NSDictionary
                 self.refreshData(activity)

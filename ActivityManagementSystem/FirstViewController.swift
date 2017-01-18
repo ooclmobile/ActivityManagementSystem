@@ -123,7 +123,7 @@ class FirstViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if (section == 0) {
-            return 200
+            return view.bounds.width*0.5
         } else {
             return 0
         }
@@ -131,7 +131,7 @@ class FirstViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if (section == 0) {
-            let frame = CGRectMake(0, 0, view.bounds.width, view.bounds.width*0.48)
+            let frame = CGRectMake(0, 0, view.bounds.width, view.bounds.width*0.5)
             //let imageView = ["2.png","3.png","1.png"]
             
             let loopView = XHAdLoopView(frame: frame, images: self.imageView, autoPlay: true, delay: 3, isFromNet: true)
